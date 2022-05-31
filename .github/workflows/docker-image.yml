@@ -26,7 +26,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Build and push
-        uses: docker/build-push-action@v3.0.0
+        uses: docker/build-push-action@v3
         with:
+          context: "{{defaultContext}}:mysubdir"
           push: true
           tags: user/app:latest
