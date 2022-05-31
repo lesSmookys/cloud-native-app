@@ -28,6 +28,5 @@ jobs:
         name: Build and push
         uses: docker/bake-action@master
         with:
-          context: .
           push: true
           tags: user/app:latest
