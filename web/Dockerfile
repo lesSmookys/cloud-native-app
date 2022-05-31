@@ -10,7 +10,7 @@ FROM alpine:3.16.0
 EXPOSE 80
 
 COPY --from=builder /go/dispatcher /
-COPY /static /static/
+COPY /web/static /static/
 
 CMD ["/dispatcher"]
 
