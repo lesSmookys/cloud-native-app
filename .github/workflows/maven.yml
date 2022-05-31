@@ -5,6 +5,7 @@ name: Java CI with Maven
 
 on:
   push:
+  #possibilite de préciser une folder complet
     branches: [ main ]
   pull_request:
     branches: [ main ]
