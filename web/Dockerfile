@@ -1,7 +1,7 @@
 # BUILD
 FROM golang:alpine as builder
 
-COPY dispatcher.go .
+COPY /web/dispatcher.go .
 RUN go build dispatcher.go
 
 # RUN
