@@ -1,0 +1,25 @@
+name: Deploy-GKE
+
+on: [workflow_dispatch]
+  
+jobs:    
+  Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # Setup gcloud CLI
+    - uses: google-github-actions/setup-gcloud@v0.6.0
+      with:
+        service_account_key: ${{ secrets.GKE_SA_KEY }}
+        project_id: sandbox-kubernetes-350013
+        export_default_credentials: true 
+
+    # Get the GKE credentials so we can deploy to the cluster
+    - run: gcloud container clusters get-credentials my-first-cluster-1 --zone europe-west1-b --project sandbox-kubernetes-350013
+
+    # Deploy the new Docker image to the GKE cluster
+    - name: Deploy
+      run: kubectl apply -f kube-deployment.yaml
