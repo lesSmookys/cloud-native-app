@@ -1,20 +1,18 @@
-#BUILD
-FROM golang:1.16-alpine as builder
+# BUILD
+FROM golang:alpine as builder
 
 COPY dispatcher.go .
-
 RUN go build dispatcher.go
 
-#RUN
-
-#TOUJOURS PRECISER UNE VERSION / TAG
+# RUN
 FROM alpine:3.16.0
 
 EXPOSE 80
-CMD [ "/dispatcher" ] 
 
 COPY --from=builder /go/dispatcher /
-COPY /static /static/
+COPY static /static/
+
+CMD ["/dispatcher"]
 
 
 
