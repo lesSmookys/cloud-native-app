@@ -31,7 +31,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: .
-          file: ././web/Dockerfile
+          context: ././
+          file: web/Dockerfile
           push: true
           tags: florentnakaz/web:1.0
