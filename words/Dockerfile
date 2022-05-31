@@ -18,7 +18,7 @@ EXPOSE 8080
 WORKDIR /app
 COPY --from=build /home/lab/target .
 
-# Test actions
+# Test actions 1
 
 
 
