@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+
+  db:
+    build: db
+    image: sebkhedim/cloud-native-db:1.0.0
+
+  words:
+    build: words
+    image: sebkhedim/cloud-native-api:1.0.0
+    deploy:
+      replicas: 5
+
+  web:
+    build: web
+    image: sebkhedim/cloud-native-web:1.0.0
+    ports:
+     - "8080:80"
