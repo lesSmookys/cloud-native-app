@@ -17,3 +17,5 @@ services:
     image: sebkhedim/cloud-native-web:1.0.0
     ports:
      - "8080:80"
+
+     #test commit actions docker-compose
