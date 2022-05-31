@@ -3,10 +3,10 @@ FROM maven:adoptopenjdk as build
 
 WORKDIR /home/lab
 
-COPY /words/pom.xml .
+COPY /pom.xml .
 RUN mvn verify -DskipTests --fail-never
 
-COPY /words/src ./src
+COPY /src ./src
 RUN mvn verify
 
 # RUN JAVA BACK
